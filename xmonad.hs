@@ -11,6 +11,7 @@ import XMonad.Hooks.EwmhDesktops as EWMH
 
 import qualified Network.MPD as MPD
 import Control.MPD
+import Control.Zoom
 
 
 terminalCmd = "termite -e /usr/bin/tmux"
@@ -32,6 +33,7 @@ configWith xmproc = defaultConfig {
             ("M-C-l", spawn "xscreensaver-command -lock"),
             ("M-C-d", kill),
             ("M-s", withFocused $ windows . StackSet.sink),
+            ("M-z", launchZoom),
             ("<F5>", withMPD MPD.previous),
             ("<F6>", withMPD MPD.next),
             ("<F7>", withMPD mpdPlay),
