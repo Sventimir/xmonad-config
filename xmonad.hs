@@ -1,7 +1,9 @@
+import Data.Default (def)
 import System.IO (hPutStrLn)
-import XMonad (X, XConfig(..), xmonad, defaultConfig, mod4Mask, spawn, kill,
-                windows, composeAll, withFocused, className, doShift,
-                (-->), (=?))
+import XMonad (X, XConfig(..), ManageHook, xmonad, defaultConfig, mod4Mask,
+                spawn, kill, windows, composeAll, withFocused, className,
+                ask, doShift, (-->), (=?))
+import XMonad.ManageHook ((<+>))
 import qualified XMonad.Hooks.DynamicLog as DynLog
 import qualified XMonad.Hooks.ManageDocks as Docks
 import qualified XMonad.Util.EZConfig as EZConf
@@ -9,6 +11,7 @@ import qualified XMonad.Util.Run as XMRun
 import qualified XMonad.StackSet as StackSet
 import XMonad.Hooks.EwmhDesktops as EWMH
 
+import qualified Control.Keyboard as Kbd
 import qualified Network.MPD as MPD
 import Control.MPD
 import Control.Zoom
@@ -34,10 +37,11 @@ configWith xmproc = defaultConfig {
             ("M-C-d", kill),
             ("M-s", withFocused $ windows . StackSet.sink),
             ("M-z", launchZoom),
-            ("<F5>", withMPD MPD.previous),
-            ("<F6>", withMPD MPD.next),
-            ("<F7>", withMPD mpdPlay),
-            ("<F8>", withMPD MPD.stop)
+            ("M-l", Kbd.selectLayout),
+            ("<XF86AudioPrev>", withMPD MPD.previous),
+            ("<XF86AudioNext>", withMPD MPD.next),
+            ("<XF86AudioPlay>", withMPD mpdPlay),
+            ("<XF86AudioStop>", withMPD MPD.stop)
         ]
 
 workspaceNames = ["terminal", "browser", "editor", "communicator", "steam", "messanger"] ++
@@ -52,8 +56,9 @@ startup = do
     spawn "discord --start-minimized"
     spawn "slack"
     spawn "caprine"
+    spawn "protonmail-bridge --no-window"
 
-myManageHook = composeAll [
+myManageHook = manageHook def <+> composeAll [
         Docks.manageDocks,
         className =? "Termite"      --> doShift "termite",
         className =? "qutebrowser"  --> doShift "browser",
