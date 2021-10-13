@@ -17,7 +17,7 @@ import Control.MPD
 import Control.Zoom
 
 
-terminalCmd = "termite -e /usr/bin/tmux"
+terminalCmd = "alacritty -e /usr/bin/tmux"
 
 main = do
     readEnd <- XMRun.spawnPipe "xmobar"
@@ -56,7 +56,6 @@ startup = do
     spawn "discord --start-minimized"
     spawn "slack"
     spawn "caprine"
-    spawn "protonmail-bridge --no-window"
 
 myManageHook = manageHook def <+> composeAll [
         Docks.manageDocks,
