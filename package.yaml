@@ -1,0 +1,40 @@
+name:                sventimir-xmonad-config
+version:             0.1.0.0
+github:              "Sventimir/xmonad-config"
+license:             BSD3
+author:              "Sventimir"
+maintainer:          "svantimir@gmail.com"
+copyright:           "2021 Sventimir"
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         My custom XMonad configuration and additions.
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- data-default
+- filepath
+- libmpd
+- xmonad
+- xmonad-contrib
+- unix
+
+library:
+  source-dirs: src
+
+executables:
+  xmonad-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - sventimir-xmonad-config

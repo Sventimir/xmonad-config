@@ -1,4 +1,4 @@
-*.hi
-*.o
-*.errors
+.stack-work/
+bin/
 xmonad-x86_64-linux
+xmonad.errors
