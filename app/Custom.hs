@@ -1,13 +1,13 @@
+{-# LANGUAGE OverloadedStrings #-}
 module Custom where
 
 import Control.MPD
+import Control.Screen (screenshotOverwrite)
 import Data.Default (def)
-import qualified Network.MPD as MPD
 import qualified Control.Keyboard as Kbd
-import XMonad (X, XConfig(..), ManageHook, xmonad, defaultConfig, mod4Mask,
-                spawn, kill, windows, composeAll, withFocused, className,
-                ask, doShift, (-->), (=?))
-import qualified XMonad.Config as Cfg
+import qualified Network.MPD as MPD
+import XMonad (X, XConfig(..), spawn, windows, composeAll, withFocused,
+               className, doShift, (-->), (=?))
 import qualified XMonad.Hooks.ManageDocks as Docks
 import XMonad.ManageHook ((<+>))
 import qualified XMonad.StackSet as StackSet
@@ -15,11 +15,15 @@ import qualified XMonad.StackSet as StackSet
 
 terminalCmd = "alacritty -e /usr/bin/tmux"
 
+screenShotFile = "data/img/screen.png"
+
 keyBindings = [
             ("M-C-l", spawn "xscreensaver-command -lock"),
             ("M-C-p", spawn "passmenu"),
             ("M-s", withFocused $ windows . StackSet.sink),
             ("M-l", Kbd.selectLayout),
+            -- ("<F12>", screenshotOverwrite screenShotFile ["-s"]),
+            -- ("C-<F12>", screenshotOverwrite screenShotFile []),
             ("<XF86AudioPrev>", withMPD MPD.previous),
             ("<XF86AudioNext>", withMPD MPD.next),
             ("<XF86AudioPlay>", withMPD mpdPlay),

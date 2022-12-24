@@ -23,6 +23,7 @@ library
   exposed-modules:
       Control.Keyboard
       Control.MPD
+      Control.Screen
       Util.Maybe
   other-modules:
       Paths_sventimir_xmonad_config
@@ -34,6 +35,7 @@ library
     , data-default
     , filepath
     , libmpd
+    , process
     , unix
     , xmonad
     , xmonad-contrib
@@ -53,6 +55,7 @@ executable xmonad-exe
     , data-default
     , filepath
     , libmpd
+    , process
     , sventimir-xmonad-config
     , unix
     , xmonad

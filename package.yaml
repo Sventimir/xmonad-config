@@ -21,6 +21,7 @@ dependencies:
 - data-default
 - filepath
 - libmpd
+- process
 - xmonad
 - xmonad-contrib
 - unix
