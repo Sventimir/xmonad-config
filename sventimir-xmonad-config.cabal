@@ -23,7 +23,6 @@ library
   exposed-modules:
       Control.Keyboard
       Control.MPD
-      Control.Zoom
       Util.Maybe
   other-modules:
       Paths_sventimir_xmonad_config
