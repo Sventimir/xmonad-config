@@ -3,11 +3,46 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages: []
+packages:
+- completed:
+    hackage: glib-0.13.10.0@sha256:e136db5cb19cbec17f823e919a0b44c12e50a90296d03c9d0c54761200611267,3171
+    pantry-tree:
+      sha256: 2e513e6a9b5d5fa1603f832bfda6dee4cb3d77425aff4e9ec5a38682c8818d8b
+      size: 1625
+  original:
+    hackage: glib-0.13.10.0@sha256:e136db5cb19cbec17f823e919a0b44c12e50a90296d03c9d0c54761200611267,3171
+- completed:
+    hackage: gtk2hs-buildtools-0.13.10.0@sha256:ae8d2779835e29eb72f2ab1697901dba23adc45ccf197c7a51daaa5056869644,5305
+    pantry-tree:
+      sha256: 059d57676c2557bbf31c93189fb983ae0a7747fec8830395f88f4badfb90c12d
+      size: 3588
+  original:
+    hackage: gtk2hs-buildtools-0.13.10.0@sha256:ae8d2779835e29eb72f2ab1697901dba23adc45ccf197c7a51daaa5056869644,5305
+- completed:
+    hackage: cairo-0.13.10.0@sha256:388f39af90d50b920cad70612046041a7ffd7f5b60721862c0c797ecddf7e902,4153
+    pantry-tree:
+      sha256: a5d7014b0df2600377d061185b104f755274935554e723e2b7b600b85ffc7ae2
+      size: 2831
+  original:
+    hackage: cairo-0.13.10.0@sha256:388f39af90d50b920cad70612046041a7ffd7f5b60721862c0c797ecddf7e902,4153
+- completed:
+    hackage: pango-0.13.10.0@sha256:4c7fc6187aadc2f3905a8fae7318ceccbb2af88134922536e3f4cae8640978dc,4081
+    pantry-tree:
+      sha256: acff0fc47176a959f14703e86704a0b5935aaabe84db245d03086061879179cf
+      size: 1506
+  original:
+    hackage: pango-0.13.10.0@sha256:4c7fc6187aadc2f3905a8fae7318ceccbb2af88134922536e3f4cae8640978dc,4081
+- completed:
+    hackage: xmobar-0.47@sha256:349f9838ffeaca306de6930edc8a0f8695a5bf5b679b7d815129074a37fe96d1,14932
+    pantry-tree:
+      sha256: 80546994840ad23f3089532dd14044b05d2c151baf137c0a60d1c0617e7dee02
+      size: 9769
+  original:
+    hackage: xmobar-0.47@sha256:349f9838ffeaca306de6930edc8a0f8695a5bf5b679b7d815129074a37fe96d1,14932
 snapshots:
 - completed:
-    size: 586292
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/17.yaml
-    sha256: e66e70a7f998036025e8f40abc89b8eeb79c88f57727020cba1b54f375aa7ca0
+    sha256: b73b2b116143aea728c70e65c3239188998bac5bc3be56465813dacd74215dc5
+    size: 648424
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/20/1.yaml
   original:
-    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/18/17.yaml
+    url: https://raw.githubusercontent.com/commercialhaskell/stackage-snapshots/master/lts/20/1.yaml

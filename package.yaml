@@ -22,6 +22,7 @@ dependencies:
 - filepath
 - libmpd
 - process
+- xmobar
 - xmonad
 - xmonad-contrib
 - unix
