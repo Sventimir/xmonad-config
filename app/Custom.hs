@@ -33,7 +33,7 @@ keyBindings = [
 startup :: X ()
 startup = do
     spawn terminalCmd
-    spawn "qutebrowser"
+    spawn "nyxt"
     spawn "/home/sven/code/bash/emacsclient-startup.sh" -- make sure to wait until service is ready.
     spawn "discord --start-minimized"
     spawn "slack"
@@ -45,7 +45,7 @@ workspaceNames = ["terminal", "browser", "editor", "communicator", "steam", "mes
 myManageHook = manageHook def <+> composeAll [
         Docks.manageDocks,
         className =? "Termite"      --> doShift "termite",
-        className =? "qutebrowser"  --> doShift "browser",
+        className =? "nyxt"  --> doShift "browser",
         className =? "discord"      --> doShift "communicator",
         className =? "Slack"        --> doShift "communicator",
         className =? "Caprine"      --> doShift "messanger",
