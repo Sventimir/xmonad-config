@@ -1,0 +1,33 @@
+Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
+        , position = Static { xpos = 1920 , ypos = 0, width = 1800, height = 32 }
+        , bgColor = "black"
+        , fgColor = "grey"
+        , lowerOnStart = True
+        , commands = [ Run Network "enp3s0" ["-L","0","-H","32","--normal","green","--high","red"] 10
+                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
+                     , Run Memory ["-t","Mem: <usedratio>%"] 10
+                     , Run MPD ["-t", "[MPD: <statei>] #<ppos>/<plength> <title> (<lapsed>/<length>)"] 10
+                     , Run Battery [ "--template" , "Batt: <acstatus>"
+                                   , "--Low"      , "10"        -- units: %
+                                   , "--High"     , "80"        -- units: %
+                                   , "--low"      , "darkred"
+                                   , "--normal"   , "darkorange"
+                                   , "--high"     , "darkgreen"
+
+                                   , "--" -- battery specific options
+                                   -- discharging status
+                                   , "-o"	, "<left>% (<timeleft>)"
+                                   -- AC "on" status
+                                   , "-O"	, "<fc=#dAA520>Charging</fc>"
+                                   -- charged status
+                                   , "-i"	, "<fc=#006000>Charged</fc>"
+                             ] 10
+                    , Run Com "uname" ["-s","-r"] "" 36000
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Uptime ["-t", "Up: <hours>:<minutes>"] 60
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = "%StdinReader% | %cpu% | %memory% | %enp3s0% | %mpd%}{%battery% | %uname% | %uptime% | <fc=#ffff00>%date%</fc>"
+       }
