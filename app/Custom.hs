@@ -35,21 +35,15 @@ startup = do
     spawn terminalCmd
     spawn "nyxt"
     spawn "/home/sven/code/bash/emacsclient-startup.sh" -- make sure to wait until service is ready.
-    spawn "discord --start-minimized"
-    spawn "slack"
-    spawn "caprine"
 
 workspaceNames = ["terminal", "browser", "editor", "communicator", "steam", "messanger"] ++
             zipWith (++) (repeat "stuff") (map show [1..4])
 
 myManageHook = manageHook def <+> composeAll [
         Docks.manageDocks,
-        className =? "Termite"      --> doShift "termite",
-        className =? "nyxt"  --> doShift "browser",
+        className =? "Nyxt"         --> doShift "browser",
         className =? "discord"      --> doShift "communicator",
         className =? "Slack"        --> doShift "communicator",
-        className =? "Caprine"      --> doShift "messanger",
-        className =? "Atom"         --> doShift "editor",
         className =? "Steam"        --> doShift "steam",
         className =? "Emacs"        --> doShift "editor"
     ]
