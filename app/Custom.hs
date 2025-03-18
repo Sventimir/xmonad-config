@@ -6,17 +6,20 @@ import Control.Screen (screenshotOverwrite)
 import Data.Default (def)
 import qualified Control.Keyboard as Kbd
 import qualified Network.MPD as MPD
-import XMonad (X, XConfig(..), spawn, windows, composeAll, withFocused,
+import XMonad (X, XConfig(..), ManageHook, spawn, windows, composeAll, withFocused,
                className, doShift, (-->), (=?))
 import qualified XMonad.Hooks.ManageDocks as Docks
 import XMonad.ManageHook ((<+>))
 import qualified XMonad.StackSet as StackSet
 
 
+terminalCmd :: String
 terminalCmd = "alacritty -e /usr/bin/tmux"
 
+screenShotFile :: String
 screenShotFile = "data/img/screen.png"
 
+keyBindings :: [(String, X ())]
 keyBindings = [
             ("M-C-l", spawn "xscreensaver-command -lock"),
             ("M-C-p", spawn "passmenu"),
@@ -37,9 +40,11 @@ startup = do
     spawn "/home/sven/code/bash/emacsclient-startup.sh" -- make sure to wait until service is ready.
     spawn "discord --start-minimized"
 
+workspaceNames :: [String]
 workspaceNames = ["terminal", "browser", "editor", "communicator", "steam", "messanger"] ++
-            zipWith (++) (repeat "stuff") (map show [1..4])
+            map (("stuff" ++) . show) [1..4]
 
+myManageHook :: ManageHook
 myManageHook = manageHook def <+> composeAll [
         Docks.manageDocks,
         className =? "Termite"      --> doShift "termite",
