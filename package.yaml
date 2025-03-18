@@ -20,8 +20,10 @@ dependencies:
 - containers
 - data-default
 - filepath
+- ghc
 - libmpd
 - process
+- X11
 - xmobar
 - xmonad
 - xmonad-contrib

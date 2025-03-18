@@ -30,10 +30,12 @@ library
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      X11
+    , base >=4.7 && <5
     , containers
     , data-default
     , filepath
+    , ghc
     , libmpd
     , process
     , unix
@@ -51,10 +53,12 @@ executable xmonad-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      X11
+    , base >=4.7 && <5
     , containers
     , data-default
     , filepath
+    , ghc
     , libmpd
     , process
     , sventimir-xmonad-config
