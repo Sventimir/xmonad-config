@@ -53,6 +53,6 @@ myManageHook = manageHook def <+> composeAll [
         className =? "Slack"        --> doShift "communicator",
         className =? "Caprine"      --> doShift "messanger",
         className =? "Atom"         --> doShift "editor",
-        className =? "Steam"        --> doShift "steam",
+        className =? "steam"        --> doShift "steam",
         className =? "Emacs"        --> doShift "editor"
     ]
