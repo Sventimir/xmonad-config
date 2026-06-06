@@ -1,5 +1,5 @@
 Config { font = "-misc-fixed-*-*-*-*-14-*-*-*-*-*-*-*"
-        , position = Static { xpos = 1920 , ypos = 0, width = 1800, height = 32 }
+        , position = OnScreen 0 (TopSize L 90 32)
         , bgColor = "black"
         , fgColor = "grey"
         , lowerOnStart = True
